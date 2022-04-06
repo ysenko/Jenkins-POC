@@ -17,7 +17,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh "echo 'Testing...'"
-                sh "echo ${IMAGES}"
+                sh "echo ${params.IMAGES}"
             }
         }
         stage('Deploy') {
