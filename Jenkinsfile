@@ -24,7 +24,7 @@ pipeline {
                                 sh('echo "Building image: ${img}"')
                             }
                         }
-                    }/var/lib/jenkins/config.xml
+                    }
                     
                     parallel parallelStages
                 }
