@@ -1,4 +1,4 @@
-def paralleStages = [:]
+def parallelStages = [:]
 def dindImagesToBuild = []
 
 pipeline {
