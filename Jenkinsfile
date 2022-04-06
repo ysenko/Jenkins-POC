@@ -1,33 +1,24 @@
 pipeline {
     agent any
     environment {
-        list_of_images = []
+        LIST_OF_IMAGES = "img1,img2"
     }
 
     stages {
         stage('Build') {
             steps {
-                sh {
-                    echo 'Building..'
-                }
-                script {
-                    list_of_images.add("Item 1")
-                }
+                sh "echo 'Building...'"
             }
         }
         stage('Test') {
             steps {
-                sh {
-                    echo 'Testing..'
-                }
-                sh {
-                    echo "${list_of_images}"
-                }
+                sh "echo 'Testing...'"
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                sh "echo 'Deploying....'"
+                sh "echo '${LIST_OF_IMAGES}'"
             }
         }
     }
