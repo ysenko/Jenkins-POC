@@ -4,6 +4,10 @@ pipeline {
         LIST_OF_IMAGES = "img1,img2"
     }
 
+    parameters {
+        string(name: 'IMAGES', defaultValue: 'img_3,img_4', description: 'List of imagest to include')
+    }
+
     stages {
         stage('Build') {
             steps {
@@ -13,6 +17,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh "echo 'Testing...'"
+                sh "echo ${IMAGES}"
             }
         }
         stage('Deploy') {
