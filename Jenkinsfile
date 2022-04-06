@@ -15,7 +15,7 @@ pipeline {
         stage("Build parallel") {
             steps {
                 script {
-                    def images = parameters.IMAGES
+                    def images = params.IMAGES
                     images.split(",").each { img -> dindImagesToBuild.add(img.trim()) }
 
                     dindImagesToBuild.each { img ->
@@ -24,7 +24,7 @@ pipeline {
                                 sh('echo "Building image: ${img}"')
                             }
                         }
-                    }
+                    }/var/lib/jenkins/config.xml
                     
                     parallel parallelStages
                 }
